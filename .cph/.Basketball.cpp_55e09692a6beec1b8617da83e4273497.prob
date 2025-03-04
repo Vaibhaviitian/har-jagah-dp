@@ -1,0 +1,1 @@
+{"name":"Local: Basketball","url":"c:\\Users\\Vaibhav Aryan\\OneDrive\\Desktop\\coding\\DP\\Basketball.cpp","tests":[{"id":1738001431483,"input":"5\n9 3 5 7 3\n5 8 1 4 5\n","output":"29\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Vaibhav Aryan\\OneDrive\\Desktop\\coding\\DP\\Basketball.cpp","group":"local","local":true}

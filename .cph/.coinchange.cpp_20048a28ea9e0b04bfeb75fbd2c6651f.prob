@@ -1,0 +1,1 @@
+{"name":"Local: coinchange","url":"c:\\Users\\Vaibhav Aryan\\OneDrive\\Desktop\\coding\\DP\\coinchange.cpp","tests":[{"id":1738181887933,"input":"1\n3 5\n1 2 5","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Vaibhav Aryan\\OneDrive\\Desktop\\coding\\DP\\coinchange.cpp","group":"local","local":true}

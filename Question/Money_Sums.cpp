@@ -38,16 +38,6 @@ long long mod_exp(long long base, long long exp, long long mod)
     }
     return result;
 }
-// function for checking prime
-bool is_prime(int n)
-{
-    for (int i = 2; i * i <= n; i++)
-    {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
 template <typename T>
 void help(const vector<T> &vec)
 {
@@ -58,27 +48,6 @@ void help(const vector<T> &vec)
     }
     cout << endl;
 }
-// Function to print 2D vector
-template <typename T>
-void helptwo(const vector<vector<T>> &vec)
-{
-    cout << "2D help is executed:" << endl;
-    for (const auto &row : vec)
-    {
-        for (const auto &i : row)
-            cout << i << " ";
-        cout << endl;
-    }
-}
-// Function to print a map
-template <typename K, typename V>
-void helpmap(const map<K, V> &mp)
-{
-    cout << "map help is executed:" << endl;
-    for (const auto &i : mp)
-        cout << i.first << " -> " << i.second << endl;
-}
-
 int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 int mod(int a) { return a < 0 ? -a : a; }
@@ -94,26 +63,50 @@ int coordinate_distance(int x1, int x2, int y1, int y2)
 }
 void coderaryan()
 {
-    int n, k;
-    cin >> n >> k;
-    vi vec(n);
-    for (int i = 0; i < n; i++)
-        cin >> vec[i];
-
-    vi dp(k + 1, 0);
-    dp[0] = 1; // Base case: sum 0 can be formed in 1 way (by choosing nothing)
-
-    for (int j = 1; j <= k; j++) // Iterate over sum
+    // executing code from here
+    int t = 1;
+    while (t--)
     {
-        for (int i = 0; i < n; i++) // Iterate over coins
+        int n;
+        cin >> n;
+        vi vec(n);
+        for (int i = 0; i < n; i++)
+            cin >> vec[i];
+        sort(vec.begin(), vec.end());
+        vi qt(100001, 0);
+        // saari values false hai initially right
+        for (int i = 0; i < n; i++)
         {
-            if (j - vec[i] >= 0)
+            for (int j = 1; j <= 100000; j++)
             {
-                dp[j] = (dp[j] + dp[j - vec[i]]) % MOD;
+                if (qt[j] == 1)
+                {
+                    qt[vec[i] + j] == 1 ? qt[vec[i] + j] = 1 : qt[vec[i] + j] = -2;
+                }
+            }
+            qt[vec[i]] = -2;
+            for (int j = 1; j <= 100000; j++)
+            {
+                if (qt[j] == -2)
+                {
+                    qt[j] = 1;
+                }
             }
         }
+        set<int> st;
+        for (int i = 1; i <= 100000; i++)
+        {
+            if (qt[i] == 1)
+            {
+                st.insert(i);
+            }
+        }
+        cout << st.size() << endl;
+        for (auto i : st)
+        {
+            cout << i << " ";
+        }
     }
-    cout << dp[k] << endl;
 }
 
 int32_t main()
